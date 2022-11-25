@@ -5,8 +5,16 @@
 const char kWindowTitle[] = "GC1A_05_ウブカタ_コトハ_GC1A_15_タケダ_ミスズ";
 
 typedef struct Vector2 {
-	float vecX;
-	float vecY;
+	float x;
+	float y;
+};
+
+typedef struct Object {
+	Vector2 pos;
+	Vector2 speed;
+	Vector2 acs;
+	float radish;
+	int color;
 };
 
 // Windowsアプリでのエントリーポイント(main関数)
@@ -18,6 +26,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
 	char preKeys[256] = {0};
+
+	const int playerNum = 4;
+	Object Player[playerNum]{
+		{},{},{},{},
+	};
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -32,7 +45,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		//aaaaaaa
+		
 		///
 		/// ↑更新処理ここまで
 		///
