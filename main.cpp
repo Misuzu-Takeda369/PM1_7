@@ -17,6 +17,10 @@ typedef struct Object {
 	int color;
 };
 
+float easeInSine(float x) {
+	return 1 - cosf((x * M_PI) / 2);
+}
+
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
@@ -24,12 +28,15 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Novice::Initialize(kWindowTitle, 1280, 720);
 
 	// キー入力結果を受け取る箱
-	char keys[256] = {0};
-	char preKeys[256] = {0};
+	char keys[256] = { 0 };
+	char preKeys[256] = { 0 };
 
 	const int playerNum = 4;
 	Object Player[playerNum]{
-		{},{},{},{},
+		{{0.0f,0.0f},{0.0f,0.0f},{0.0f,0.0f},50.0f,RED},//普通
+		{{0.0f,0.0f},{0.0f,0.0f},{0.0f,0.0f},50.0f,RED},
+		{{0.0f,0.0f},{0.0f,0.0f},{0.0f,0.0f},50.0f,RED},
+		{{0.0f,0.0f},{0.0f,0.0f},{0.0f,0.0f},50.0f,RED}
 	};
 
 	// ウィンドウの×ボタンが押されるまでループ
@@ -45,7 +52,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		
+		Player[0].pos.x = Player[0].speed.x;
+
+		easeInSine(Player[1].pos.x);
+
+
 		///
 		/// ↑更新処理ここまで
 		///
