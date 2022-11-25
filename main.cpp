@@ -2,7 +2,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-const char kWindowTitle[] = "GC1A_15_タケダ_ミスズ";
+const char kWindowTitle[] = "GC1A_05_ウブカタ_コトハ_GC1A_15_タケダ_ミスズ";
 
 typedef struct Vector2 {
 	float vecX;
